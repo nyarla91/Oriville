@@ -7,23 +7,20 @@ namespace Gameplay.Tiles
     public class TileFactory : MonoBehaviour
     {
         [SerializeField] private GameObject _tilePrefab;
+        [SerializeField] private GameObject _tilePointsViewPrefab;
+        [SerializeField] private Canvas _hud;
 
-        private ContainerInstantiator _instantiator;
-        private GameplayRules _rules;
+        [Inject] private ContainerInstantiator Instantiator { get; set; }
+        [Inject] private GameplayRules Rules { get; set; }
 
-        [Inject]
-        private void Construct(ContainerInstantiator instantiator, GameplayRules rules)
-        {
-            _instantiator = instantiator;
-            _rules = rules;
-        }
-        
         public void SpawnTile(TileType type, Vector3 position)
         {
-            position = position.SnapToGrid(Vector3.one * _rules.GridSize).WithY(0);
-            Tile tile = _instantiator.Instantiate<Tile>(_tilePrefab, position);
+            position = position.SnapToGrid(Vector3.one * Rules.GridSize).WithY(0);
+            Tile tile = Instantiator.Instantiate<Tile>(_tilePrefab, position);
             tile.Init(type);
             Instantiate(type.View, tile.Transform);
+            TilePointsView view = Instantiator.Instantiate<TilePointsView>(_tilePointsViewPrefab, Vector3.zero, _hud.transform);
+            view.Init(tile);
         }
     }
 }

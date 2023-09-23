@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class WindowTweenView : Transformable
+    public class WindowTweenView : RectTransformable
     {
         [SerializeField] private CanvasGroup _canvasGroup;
         

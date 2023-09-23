@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class SelectionBox : Transformable
+    public class SelectionBox : RectTransformable
     {
         public void Hide(RectTransform canvas)
         {

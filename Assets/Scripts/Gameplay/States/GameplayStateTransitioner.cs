@@ -13,7 +13,6 @@ namespace Gameplay.States
         [Inject]
         private void Construct(TileProvider tileProvider)
         {
-            Debug.Log(tileProvider);
             TilePlacement = new(tileProvider);
             GoToState(TilePlacement);
         }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a00884c61c54a4ea15d053745e8ecf0, type: 3}
   m_Name: Forest
   m_EditorClassIdentifier: 
-  _rule: {fileID: 11400000, guid: 8a9417ae8bff1684897727e541ecd4fb, type: 2}
+  _rule: {fileID: 11400000, guid: 1580a4521b3d7ff429558241dbd0cce4, type: 2}
   _biome: 0
   _placementView: {fileID: 1986189692168322088, guid: b9727577340268d449b74bc3b2139875, type: 3}
   _view: {fileID: 1986189692168322088, guid: b9727577340268d449b74bc3b2139875, type: 3}

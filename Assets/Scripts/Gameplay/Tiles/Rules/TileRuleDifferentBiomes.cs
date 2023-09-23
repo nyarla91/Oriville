@@ -7,8 +7,8 @@ namespace Gameplay.Tiles.Rules
     public class TileRuleDifferentBiomes : TileRule
     {
         [SerializeField] private int _pointsPerBiome;
-        
-        protected override int CalculatePoints(TileBiome[] adjacentBiomes)
+
+        public override int CalculatePoints(TileBiome[] adjacentBiomes)
         {
             int result = 0;
             List<TileBiome> countedBiomes = new();

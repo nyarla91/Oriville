@@ -8,8 +8,8 @@ namespace Gameplay.Tiles.Rules
     {
         [SerializeField] private TileBiome _biome;
         [SerializeField] private int _pointsPerTile;
-        
-        protected override int CalculatePoints(TileBiome[] adjacentBiomes)
+
+        public override int CalculatePoints(TileBiome[] adjacentBiomes)
         {
             int validTiles = adjacentBiomes.Where(biome => biome == _biome).ToArray().Length;
             return validTiles * _pointsPerTile;

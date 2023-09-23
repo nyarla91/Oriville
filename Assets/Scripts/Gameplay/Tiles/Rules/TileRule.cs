@@ -4,7 +4,7 @@ namespace Gameplay.Tiles.Rules
 {
     public abstract class TileRule : ScriptableObject
     {
-        protected abstract int CalculatePoints(TileBiome[] adjacentBiomes);
+        public abstract int CalculatePoints(TileBiome[] adjacentBiomes);
     }
     
 }

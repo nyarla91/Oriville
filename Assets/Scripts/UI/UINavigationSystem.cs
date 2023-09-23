@@ -10,7 +10,7 @@ using Zenject;
 namespace UI
 {
     [RequireComponent(typeof(Canvas))]
-    public class UINavigationSystem : Transformable
+    public class UINavigationSystem : RectTransformable
     {
         [SerializeField] private AudioSource _navigationSoundSource;
         [SerializeField] private SelectionBox _selectionBox;

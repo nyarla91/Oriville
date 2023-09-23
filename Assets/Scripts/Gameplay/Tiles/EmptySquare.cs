@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Gameplay.Tiles
 {
-    public class EmptySquare : SquareEntity, IPointerClickHandler
+    public class EmptySquare : SquareEntity, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [Inject] private ContainerInstantiator Instantiator { get; }
         [Inject] private TileProvider TileProvider { get; }
@@ -15,6 +15,7 @@ namespace Gameplay.Tiles
         {
             SpawnTileHere();
             SpawnSquaresAround();
+            Destroy(gameObject);
         }
 
         private void SpawnTileHere()
@@ -24,14 +25,33 @@ namespace Gameplay.Tiles
 
         private void SpawnSquaresAround()
         {
-            Vector3[] directions = {Vector3.forward, Vector3.back, Vector3.left, Vector3.right};
-            foreach (Vector3 direction in directions)
+            ForeachAdjacentTile((direction, tile) =>
             {
-                if (GetAdjacentTileInDirection(direction) != null)
-                    continue;
+                if (tile != null)
+                    return;
                 Vector3 position = GetAdjacentSquareInDirection(direction);
                 Instantiator.Instantiate<Transform>(gameObject, position);
-            }
+            });
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            ForeachAdjacentTile((direction, tile) =>
+            {
+                if (tile == null)
+                    return;
+                tile.StartPointsPreview( - direction, TileProvider.CurrentType.Biome);
+            });
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            ForeachAdjacentTile((_, tile) =>
+            {
+                if (tile == null)
+                    return;
+                tile.EndPointsPreview();
+            });
         }
     }
 }
