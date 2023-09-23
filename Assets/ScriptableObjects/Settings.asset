@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0dd15b55b645e5be350657a9b69c71, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  _mixer: {fileID: 0}
+  _mixer: {fileID: 24100000, guid: d4f2f9d785dc009449f076dc8797f5d3, type: 2}
   _soundCurve:
     serializedVersion: 2
     m_Curve:

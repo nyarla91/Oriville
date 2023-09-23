@@ -74,7 +74,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2cc90c77ea4e8a845abc6f15b16d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneLoaderPrefab: {fileID: 1410524774520128992, guid: 9d58a8c2d46cf69438721448d3a9937a, type: 3}
-  _deviceWatcherPrefab: {fileID: 3791251603371342818, guid: 8f3ac5f372f9ff944989672dc57bb6a1, type: 3}
-  _settingsPrefab: {fileID: 8448436274929121053, guid: 3b4f84cf139402c408971561bd1a2df1, type: 3}
-  _pausePrefab: {fileID: 1410524774520128992, guid: b460af593ff83ce47a81e39c0269d812, type: 3}
+  _sceneLoader: {fileID: 11400000, guid: 9bf8a6c62a597b84a8ca321d40382068, type: 2}
+  _settings: {fileID: 11400000, guid: c01ee5ef974b44d428ab93617d54357e, type: 2}

@@ -10,7 +10,7 @@ namespace Extentions.Factory
         [SerializeField] private GameObject _prefab;
         [SerializeField] private List<TaggedObject> _pool = new List<TaggedObject>();
         
-        [Inject] private ContainerFactory ContainerFactory { get; set; }
+        [Inject] private ContainerInstantiator ContainerInstantiator { get; set; }
 
         public void DisableObject(PoolObject objectToRemove)
         {
@@ -50,7 +50,7 @@ namespace Extentions.Factory
 
         private T InstantiatePrefab<T>(Vector3 position, GameObject prefab, Transform parent, string tag) where T : PoolObject
         {
-            T newObject = ContainerFactory.Instantiate<T>(prefab, position, parent);
+            T newObject = ContainerInstantiator.Instantiate<T>(prefab, position, parent);
             newObject.Transform.position = position;
             newObject.Transform.parent = parent;
             newObject.PoolInit(this);

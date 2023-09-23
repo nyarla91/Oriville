@@ -5,6 +5,7 @@ using UnityEngine.AddressableAssets;
 
 namespace GameStates
 {
+    [CreateAssetMenu(menuName = "Scene Loader")]
     public class SceneLoader : ScriptableObject
     {
         [SerializeField] private AssetReference _loadingReference;
@@ -24,14 +25,14 @@ namespace GameStates
                 return;
             _loadingScene = true;
 
-            _blackScreen.DOKill();
-            _blackScreen.DOFade(1, _transitionDuration);
+            //_blackScreen.DOKill();
+            //_blackScreen.DOFade(1, _transitionDuration);
             await Task.Delay((int) (_transitionDuration * 1000));
         
             await _loadingReference.LoadSceneAsync().Task;
             await scene.LoadSceneAsync().Task;
         
-            _blackScreen.DOFade(0, _transitionDuration);
+            //_blackScreen.DOFade(0, _transitionDuration);
             await Task.Delay((int) (_transitionDuration * 1000));
         
             _loadingScene = false;

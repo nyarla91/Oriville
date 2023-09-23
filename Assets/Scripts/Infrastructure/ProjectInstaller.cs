@@ -3,7 +3,7 @@ using GameStates;
 using Input;
 using PlayerSettings;
 using UnityEngine;
-using MonoInstaller = Extentions.MonoInstaller;
+using Zenject;
 
 namespace Infrastructure
 {

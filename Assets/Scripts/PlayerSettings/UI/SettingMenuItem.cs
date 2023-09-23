@@ -9,7 +9,7 @@ namespace PlayerSettings.UI
         [SerializeField] private string _settingLabel;
 
         [Inject] private Settings Settings { get; set; }
-        
+
         protected void ApplySetting(int value)
         {
             if (Settings == null)
