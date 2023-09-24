@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 149215487061583911}
   - component: {fileID: 149215487061583904}
   - component: {fileID: 149215487061583910}
+  - component: {fileID: 372576573932716462}
   m_Layer: 5
   m_Name: TilePointsCounter
   m_TagString: Untagged
@@ -197,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -229,3 +230,15 @@ MonoBehaviour:
   _defaultColor: {r: 0, g: 0, b: 0, a: 1}
   _reductionColor: {r: 1, g: 0, b: 0, a: 1}
   _incrementColor: {r: 0.13000941, g: 1, b: 0, a: 1}
+--- !u!225 &372576573932716462
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149215487061583906}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

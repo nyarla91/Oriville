@@ -7,9 +7,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1932006718407005746, guid: 0d7decf7d8974ac4e923d452f1f54298, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eaad967feef77bb4896f7c528c188d83, type: 2}
+    - target: {fileID: 2615040792498891363, guid: 0d7decf7d8974ac4e923d452f1f54298, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 008bde56a99cc974d9a980f7b3fc045c, type: 2}
     - target: {fileID: 3337031370066206630, guid: 0d7decf7d8974ac4e923d452f1f54298, type: 3}
       propertyPath: m_Name
-      value: TileView
+      value: ForestTileView
       objectReference: {fileID: 0}
     - target: {fileID: 4547613178494737258, guid: 0d7decf7d8974ac4e923d452f1f54298, type: 3}
       propertyPath: m_RootOrder
