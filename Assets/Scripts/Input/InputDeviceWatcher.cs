@@ -56,7 +56,7 @@ namespace Input
         public event Action<UIScheme> OnUISchemeChanged;
         public event Action<UIScheme> OnUISchemeSet;
 
-        private void Awake()
+        private InputDeviceWatcher()
         {
             _deviceUpdateActions = new DeviceUpdateActions();
             _deviceUpdateActions.General.Enable();

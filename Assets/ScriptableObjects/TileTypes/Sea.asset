@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a00884c61c54a4ea15d053745e8ecf0, type: 3}
   m_Name: Sea
   m_EditorClassIdentifier: 
-  _rule: {fileID: 11400000, guid: 8a9417ae8bff1684897727e541ecd4fb, type: 2}
-  _biome: 0
+  _rule: {fileID: 11400000, guid: a5a71c03028e1e641886b8892fe6e8e1, type: 2}
+  _biome: 1
   _placementView: {fileID: 1986189692168322088, guid: 5d394deb84eb7854094715a7d7feb4aa, type: 3}
   _view: {fileID: 1986189692168322088, guid: 5d394deb84eb7854094715a7d7feb4aa, type: 3}

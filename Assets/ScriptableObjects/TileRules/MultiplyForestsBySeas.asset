@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15d3839bdb34405f814bceb8a5cd3826, type: 3}
-  m_Name: ThreeIfOdd
+  m_Script: {fileID: 11500000, guid: 3b2e5c22fb8d46018c934be3e6d8e302, type: 3}
+  m_Name: MultiplyForestsBySeas
   m_EditorClassIdentifier: 
-  _odd: 1
-  _points: 3
+  _firstBiome: 0
+  _secondBiome: 1

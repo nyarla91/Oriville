@@ -21,6 +21,7 @@ namespace Gameplay.Tiles
         private void SpawnTileHere()
         {
             TileFactory.SpawnTile(TileProvider.CurrentType, Transform.position);
+            TileProvider.DrawTile();
         }
 
         private void SpawnSquaresAround()
@@ -36,6 +37,9 @@ namespace Gameplay.Tiles
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if (eventData.button != PointerEventData.InputButton.Left)
+                return;
+            
             ForeachAdjacentTile((direction, tile) =>
             {
                 if (tile == null)

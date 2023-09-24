@@ -2,54 +2,9 @@
     "name": "GameplayActions",
     "maps": [
         {
-            "name": "Player",
+            "name": "Camera",
             "id": "5fc8b0c1-056f-4cb3-a014-b121bf02fd49",
             "actions": [
-                {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "d073dc10-d5af-448f-a475-ca0f50fc9e2e",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Dodge",
-                    "type": "Button",
-                    "id": "e3491520-ec64-4858-a4dc-6e402fe6445c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ThrowHook",
-                    "type": "Button",
-                    "id": "2bf0ef96-87bc-4b30-9374-7705e247a21e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Harpoon",
-                    "type": "Button",
-                    "id": "a399bda0-8978-4635-afb4-95a14723ada2",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Net",
-                    "type": "Button",
-                    "id": "ec9c250f-2885-445f-a03c-dbb5683c80c5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
                 {
                     "name": "Pause",
                     "type": "Button",
@@ -58,185 +13,45 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DragButton",
+                    "type": "Button",
+                    "id": "dd8c5363-acd9-4653-9d34-6768b507529d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MouseMove",
+                    "type": "Value",
+                    "id": "24e31f49-ee06-47a4-a841-334557c25dd2",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ThumbstickMove",
+                    "type": "Value",
+                    "id": "dffeba88-e346-4e71-a3a8-e5173ed33fe7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Zoom",
+                    "type": "Value",
+                    "id": "51d64025-3683-4a28-ba73-800d939a07a8",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "74968e03-8905-4d09-8276-22cf4fd19f5b",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "22c4fe4b-fdb1-4f0a-bb9e-85acd96ecae3",
-                    "path": "<Gamepad>/dpad",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "WASD",
-                    "id": "daf3980c-0da0-47cd-bc46-1fb757a02874",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "44d360f4-cca2-44b1-b005-8b57f9603874",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "d136b3c0-82ce-49b6-ad61-e52bc384fa72",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "d4fbfb52-db99-4c44-8e81-306da2d7e984",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "01947d23-e6e0-4fcb-a162-0b5d87c503a6",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "eb106605-e2be-401e-9989-981681f2fcde",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "ThrowHook",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a6b6c318-6b1c-49fe-a8aa-b0434c0a0057",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "ThrowHook",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3e5fb813-9727-4085-8e93-3441c05a01df",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "ThrowHook",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1114728b-fd67-4c10-a7ce-18a77f6f1963",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Dodge",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "41862865-0eb5-4919-972e-0442d9ca8f58",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Dodge",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1c2997bf-9746-4b95-9478-7b4f88bc619c",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Dodge",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "04055ba9-a4ad-44ba-9cbe-a717c1ddf15a",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Harpoon",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3f5ff5a4-fdd3-4c29-935d-6e6457dee686",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Harpoon",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "eb262219-acbd-48db-b14e-358d2fbac6a7",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Harpoon",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "badcd0e7-08d2-4cad-9408-6c53af9e1940",
@@ -283,113 +98,56 @@
                 },
                 {
                     "name": "",
-                    "id": "03c18f35-0647-4d8c-8fcd-e15c5b6f6736",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Net",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "12ba4dcf-26c4-4c32-a95a-90f936509914",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Net",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6c9ab1d7-482d-47c9-8488-96f5e7262df3",
+                    "id": "7d1d848e-a456-40eb-94c8-73d91cbb2ac5",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Net",
+                    "action": "DragButton",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Aim",
-            "id": "39f9593e-4e18-4f08-a2fa-339444d0cdf6",
-            "actions": [
-                {
-                    "name": "Mouse",
-                    "type": "Value",
-                    "id": "1edce87f-6e11-4fae-bbff-c258605eda02",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 },
-                {
-                    "name": "DeltaCursor",
-                    "type": "Value",
-                    "id": "6285e9e2-d249-49a0-93f3-1abd07b7aa29",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "ToggleAiming",
-                    "type": "Button",
-                    "id": "e94d8c9b-beda-46ff-ab46-0dc03866b0b0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
                 {
                     "name": "",
-                    "id": "09ba1e5e-e40e-41ec-b9cb-3b1f58a07e81",
-                    "path": "<Mouse>/position",
+                    "id": "97715dd0-13aa-4a30-b9f4-3fa9fe62128a",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Mouse",
+                    "action": "MouseMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "869b11ea-c997-4539-bdf7-5bb1b974bb56",
-                    "path": "<Gamepad>/rightStick",
+                    "id": "8a31c9a6-bbfc-4f54-9677-2a2c97071ce6",
+                    "path": "<Mouse>/scroll/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DeltaCursor",
+                    "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "52f96069-5f72-4612-8397-72488e7cf6b6",
-                    "path": "<Keyboard>/n",
+                    "id": "8f083937-399d-4fc6-ac90-1ae350b22134",
+                    "path": "<Gamepad>/rightStick/y",
                     "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "ToggleAiming",
+                    "processors": "Scale(factor=3)",
+                    "groups": "",
+                    "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "e2f49adc-57fe-496e-88b7-f95046930018",
-                    "path": "<Gamepad>/rightStickPress",
+                    "id": "5d2b6356-1df7-4d3c-84bf-01ba5fb109ee",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ToggleAiming",
+                    "action": "ThumbstickMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

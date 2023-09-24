@@ -675,17 +675,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: e1a3eb8e81b566e44bba3cbac6e67009, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: e1a3eb8e81b566e44bba3cbac6e67009, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: e1a3eb8e81b566e44bba3cbac6e67009, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: e1a3eb8e81b566e44bba3cbac6e67009, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: e1a3eb8e81b566e44bba3cbac6e67009, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: e1a3eb8e81b566e44bba3cbac6e67009, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: e1a3eb8e81b566e44bba3cbac6e67009, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: e1a3eb8e81b566e44bba3cbac6e67009, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: e1a3eb8e81b566e44bba3cbac6e67009, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: e1a3eb8e81b566e44bba3cbac6e67009, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: e1a3eb8e81b566e44bba3cbac6e67009, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
 --- !u!1001 &913200804
@@ -1294,6 +1294,9 @@ GameObject:
   - component: {fileID: 1473883427}
   - component: {fileID: 1473883430}
   - component: {fileID: 1473883431}
+  - component: {fileID: 1473883434}
+  - component: {fileID: 1473883433}
+  - component: {fileID: 1473883432}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1416,6 +1419,47 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &1473883432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473883426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66dfd3b22e8c4040b062fad904674f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mouseSpeed: 100
+  _thumbstickSpeed: 1
+--- !u!114 &1473883433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473883426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc8dc6d4df642d6a007cb2b306236a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minSize: 3
+  _maxSize: 9
+  _speed: 2
+--- !u!114 &1473883434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473883426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd376c0953af45fabba00fb6d339ee68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1589118043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,6 +1538,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _types:
   - {fileID: 11400000, guid: 8e8ce57ea1b23414a91f88f6aaaafb27, type: 2}
+  - {fileID: 11400000, guid: a12e435050d401c428acdb6ec73e8ec9, type: 2}
+  - {fileID: 11400000, guid: 359933d8519581d4b85e04d8ad353f5a, type: 2}
 --- !u!4 &1801872228
 Transform:
   m_ObjectHideFlags: 0

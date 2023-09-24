@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6439f16ae9b445bfb44e91854e56d3fc, type: 3}
-  m_Name: PerForest
+  m_Name: PerForestUpTo3
   m_EditorClassIdentifier: 
   _biome: 0
   _pointsPerTile: 1
-  _tilesCap: 4
-  _zeroAfterCap: 0
+  _tilesCap: 3
+  _zeroAfterCap: 1
