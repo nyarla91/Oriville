@@ -15,12 +15,14 @@ namespace Gameplay
         [SerializeField] private float _openDelay;
         [SerializeField] private TMP_Text _finalScoreCorunter;
 
-        [Inject] private SceneLoader SceneLoader { get; set; }
+        [Inject] private SceneLoader SceneLoader { get; }
+        [Inject] private Highscore Highscore { get; }
 
         public void Show() => StartCoroutine(ShowWithDelay());
         
         private IEnumerator ShowWithDelay()
         {
+            Highscore.Add(_scoreCounter.Current);
             _finalScoreCorunter.text = _scoreCounter.Current.ToString();
             yield return new WaitForSeconds(_openDelay);
             _menu.Open();

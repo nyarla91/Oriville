@@ -1,4 +1,5 @@
 ﻿using Extentions.Pause;
+using Gameplay;
 using GameStates;
 using Input;
 using PlayerSettings;
@@ -26,6 +27,8 @@ namespace Infrastructure
             Container.Bind<Pause>().FromInstance(pause).AsSingle();
             Container.Bind<IPauseSet>().FromInstance(pause).AsSingle();
             Container.Bind<IPauseRead>().FromInstance(pause).AsSingle();
+
+            Container.Bind<Highscore>().AsSingle();
         }
     }
 }
