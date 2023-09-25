@@ -174,6 +174,45 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Placement"",
+            ""id"": ""af387ac6-cd55-4bd2-8d83-4e960c630a0d"",
+            ""actions"": [
+                {
+                    ""name"": ""Place"",
+                    ""type"": ""Button"",
+                    ""id"": ""74a0d7c7-c37d-4da5-870c-5eb1b4f3e72e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2c864017-4549-4fcb-9939-f0a54bf61bda"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Place"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b08c1c3-f0fd-47e1-b74a-7685d7659a42"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Place"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -213,6 +252,9 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
         m_Camera_MouseMove = m_Camera.FindAction("MouseMove", throwIfNotFound: true);
         m_Camera_ThumbstickMove = m_Camera.FindAction("ThumbstickMove", throwIfNotFound: true);
         m_Camera_Zoom = m_Camera.FindAction("Zoom", throwIfNotFound: true);
+        // Placement
+        m_Placement = asset.FindActionMap("Placement", throwIfNotFound: true);
+        m_Placement_Place = m_Placement.FindAction("Place", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -333,6 +375,39 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
         }
     }
     public CameraActions @Camera => new CameraActions(this);
+
+    // Placement
+    private readonly InputActionMap m_Placement;
+    private IPlacementActions m_PlacementActionsCallbackInterface;
+    private readonly InputAction m_Placement_Place;
+    public struct PlacementActions
+    {
+        private @GameplayActions m_Wrapper;
+        public PlacementActions(@GameplayActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Place => m_Wrapper.m_Placement_Place;
+        public InputActionMap Get() { return m_Wrapper.m_Placement; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlacementActions set) { return set.Get(); }
+        public void SetCallbacks(IPlacementActions instance)
+        {
+            if (m_Wrapper.m_PlacementActionsCallbackInterface != null)
+            {
+                @Place.started -= m_Wrapper.m_PlacementActionsCallbackInterface.OnPlace;
+                @Place.performed -= m_Wrapper.m_PlacementActionsCallbackInterface.OnPlace;
+                @Place.canceled -= m_Wrapper.m_PlacementActionsCallbackInterface.OnPlace;
+            }
+            m_Wrapper.m_PlacementActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Place.started += instance.OnPlace;
+                @Place.performed += instance.OnPlace;
+                @Place.canceled += instance.OnPlace;
+            }
+        }
+    }
+    public PlacementActions @Placement => new PlacementActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -358,5 +433,9 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
         void OnMouseMove(InputAction.CallbackContext context);
         void OnThumbstickMove(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
+    }
+    public interface IPlacementActions
+    {
+        void OnPlace(InputAction.CallbackContext context);
     }
 }

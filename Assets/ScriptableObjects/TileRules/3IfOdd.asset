@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15d3839bdb34405f814bceb8a5cd3826, type: 3}
+  m_Script: {fileID: 11500000, guid: a10a96bb77e94eaca278435893856e8d, type: 3}
   m_Name: 3IfOdd
   m_EditorClassIdentifier: 
-  _odd: 1
-  _points: 3
+  _biome: 0
+  _pointsPerCount: 0000000003000000000000000300000000000000

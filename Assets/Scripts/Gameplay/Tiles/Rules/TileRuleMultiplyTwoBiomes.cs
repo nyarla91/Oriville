@@ -8,12 +8,8 @@ namespace Gameplay.Tiles.Rules
     {
         [SerializeField] private TileBiome _firstBiome;
         [SerializeField] private TileBiome _secondBiome;
-        
-        public override int CalculatePoints(TileBiome[] adjacentBiomes)
-        {
-            int firstBiomeTile = adjacentBiomes.Count(biome => biome == _firstBiome);
-            int secondBiomeTile = adjacentBiomes.Count(biome => biome == _secondBiome);
-            return firstBiomeTile * secondBiomeTile;
-        }
+
+        public override int CalculatePoints(TileBiome[] adjacentBiomes) =>
+            ValidTiles(adjacentBiomes, _firstBiome) * ValidTiles(adjacentBiomes, _secondBiome);
     }
 }

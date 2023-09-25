@@ -1,4 +1,5 @@
-﻿using Input;
+﻿using Extentions.Pause;
+using Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -9,17 +10,15 @@ namespace Gameplay
     {
         [Inject] private InputDeviceWatcher InputDeviceWatcher { get; set; }
 
+        [Inject] private IPauseRead PauseRead { get; set; }
+        
         private void Update()
         {
             bool gamepadScheme = InputDeviceWatcher.CurrentInputScheme == InputScheme.Gamepad;
-            if (gamepadScheme)
-            {
-                Mouse.current.WarpCursorPosition(new Vector2(Screen.width, Screen.height) / 2);
-            }
-            /*
-            UnityEngine.Cursor.lockState = gamepadScheme ? CursorLockMode.Locked : CursorLockMode.None;
-            UnityEngine.Cursor.visible = !gamepadScheme;
-            */
+            if (!gamepadScheme)
+                return;
+            Vector2 screenPosition = PauseRead.IsPaused ? Vector2.zero : new Vector2(Screen.width, Screen.height) / 2;
+            Mouse.current.WarpCursorPosition(screenPosition);
         }
     }
 }

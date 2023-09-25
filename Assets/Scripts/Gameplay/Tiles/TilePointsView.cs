@@ -12,17 +12,17 @@ namespace Gameplay.Tiles
         [SerializeField] private Color _reductionColor;
         [SerializeField] private Color _incrementColor;
 
-        private Tile _tile;
+        private Tile _model;
         private int _actualPoints;
         
-        [Inject] private Camera MainCamer { get; set; }
+        [Inject] private Camera MainCamera { get; }
         
-        public void Init(Tile tile)
+        public void Init(Tile model)
         {
-            _tile = tile;
-            _tile.PointsChanged += UpdatePoints;
-            _tile.PointsPreviewStarted += PreviewPoints;
-            _tile.PointsPreviewEnded += ReturnActualPoints;
+            _model = model;
+            _model.PointsChanged += UpdatePoints;
+            _model.PointsPreviewStarted += PreviewPoints;
+            _model.PointsPreviewEnded += ReturnActualPoints;
         }
 
         private void UpdatePoints(int points)
@@ -48,7 +48,7 @@ namespace Gameplay.Tiles
 
         private void Update()
         {
-            RectTransform.anchoredPosition = MainCamer.WorldToScreenPoint(_tile.PointsAnchor.position);
+            RectTransform.anchoredPosition = MainCamera.WorldToScreenPoint(_model.PointsAnchor.position);
         }
     }
 }

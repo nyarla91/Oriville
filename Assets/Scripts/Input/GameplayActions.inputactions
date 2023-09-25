@@ -152,6 +152,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Placement",
+            "id": "af387ac6-cd55-4bd2-8d83-4e960c630a0d",
+            "actions": [
+                {
+                    "name": "Place",
+                    "type": "Button",
+                    "id": "74a0d7c7-c37d-4da5-870c-5eb1b4f3e72e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2c864017-4549-4fcb-9939-f0a54bf61bda",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Place",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b08c1c3-f0fd-47e1-b74a-7685d7659a42",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Place",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

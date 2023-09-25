@@ -1,4 +1,5 @@
 ﻿using Extentions;
+using Extentions.Pause;
 using Input;
 using UnityEngine;
 using Zenject;
@@ -18,9 +19,12 @@ namespace Gameplay.CameraControl
         private CameraInput Input => _input ??= GetComponent<CameraInput>();
 
         [Inject] private InputDeviceWatcher InputDeviceWatcher { get; set; }
-        
+        [Inject] private IPauseRead PauseRead { get; }
+
         private void Update()
         {
+            if (PauseRead.IsPaused)
+                return;
             if (Input.IsDragging)
                 MoveScreen( - Input.MouseMove * _mouseSpeed * Time.deltaTime);
             if (InputDeviceWatcher.CurrentInputScheme == InputScheme.Gamepad)

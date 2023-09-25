@@ -7,7 +7,9 @@ namespace Extentions
 {
     public static class CollectionExtentions
     {
-        public static List<T> PickRandomElements<T>(this IEnumerable<T> collection, int ammount)
+        public static T PickRandom<T>(this IEnumerable<T> collection) => collection.PickRandom<T>(1)[0];
+
+        public static List<T> PickRandom<T>(this IEnumerable<T> collection, int ammount)
         {
             List<T> list = collection.ToList();
             List<T> choosed = new List<T>();
@@ -26,7 +28,7 @@ namespace Extentions
             }
             return choosed;
         }
-        
+
         public static List<T> TakeAwayRandomElements<T>(ref List<T> collection, int ammount)
         {
             List<T> choosed = new List<T>();
@@ -45,8 +47,6 @@ namespace Extentions
             }
             return choosed;
         }
-
-        public static T PickRandomElement<T>(this IEnumerable<T> collection) => collection.PickRandomElements<T>(1)[0];
 
         public static string CollectionToString<T>(T[] collection)
         {
@@ -155,6 +155,19 @@ namespace Extentions
                 array[i] = filler.Invoke(i);
             }
             return array;
+        }
+
+        public static string ToStringList<T>(this IEnumerable<T> source)
+        {
+            T[] array = source.ToArray();
+            string result = "";
+            for (var i = 0; i < array.Length; i++)
+            {
+                result += $"{array[0]} ";
+                if (i < array.Length - 1)
+                    result += ",";
+            }
+            return result;
         }
     }
 }

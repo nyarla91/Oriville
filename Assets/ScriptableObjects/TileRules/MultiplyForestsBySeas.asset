@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b2e5c22fb8d46018c934be3e6d8e302, type: 3}
   m_Name: MultiplyForestsBySeas
   m_EditorClassIdentifier: 
-  _firstBiome: 0
+  _firstBiome: 2
   _secondBiome: 1

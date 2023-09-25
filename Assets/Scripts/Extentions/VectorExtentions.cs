@@ -75,6 +75,9 @@ namespace Extentions
             return vector.XZtoXY().Rotated(degrees).XYtoXZ().WithY(vector.y);
         }
 
+        public static Vector2 SnapToGrid(this Vector2 point, float gridSize) =>
+            point.SnapToGrid(new Vector2(gridSize, gridSize));
+
         public static Vector2 SnapToGrid(this Vector2 point, Vector2 gridSize)
         {
             float x = point.x;
@@ -84,6 +87,9 @@ namespace Extentions
             return new Vector2(x, y);
         }
 
+        public static Vector3 SnapToGrid(this Vector3 point, float gridSize) =>
+            point.SnapToGrid(new Vector3(gridSize, gridSize, gridSize));
+        
         public static Vector3 SnapToGrid(this Vector3 point, Vector3 gridSize)
         {
             float x = point.x;

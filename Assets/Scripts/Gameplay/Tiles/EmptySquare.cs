@@ -1,61 +1,91 @@
-﻿using Extentions;
+﻿using System.Threading.Tasks;
+using Extentions;
+using Extentions.Pause;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using Zenject;
 
 namespace Gameplay.Tiles
 {
-    public class EmptySquare : SquareEntity, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+    public class EmptySquare : SquareEntity, IPointerEnterHandler, IPointerExitHandler
     {
+        private bool _selected;
+        private bool _inBounds;
+
+        public bool Active => _inBounds && TileProvider.PendingTile != null;
+        
+        [Inject] private IPauseRead PauseRead { get; }
+        [Inject] private GameplayActions Actions { get; }
         [Inject] private ContainerInstantiator Instantiator { get; }
         [Inject] private TileProvider TileProvider { get; }
-        [Inject] private TileFactory TileFactory { get; }
-        
-        public void OnPointerClick(PointerEventData eventData)
+
+        private void Awake()
         {
-            SpawnTileHere();
+            Actions.Placement.Place.started += TryPlace;
+        }
+
+        private void TryPlace(InputAction.CallbackContext _)
+        {
+            if ( ! Active || PauseRead.IsPaused || ! _selected)
+                return;
+            TileProvider.PlacePendingTile();
             SpawnSquaresAround();
             Destroy(gameObject);
         }
 
-        private void SpawnTileHere()
-        {
-            TileFactory.SpawnTile(TileProvider.CurrentType, Transform.position);
-            TileProvider.DrawTile();
-        }
-
         private void SpawnSquaresAround()
         {
-            ForeachAdjacentTile((direction, tile) =>
+            ForeachAdjacentEntity<SquareEntity>((direction, entity) =>
             {
-                if (tile != null)
+                if (entity != null)
                     return;
                 Vector3 position = GetAdjacentSquareInDirection(direction);
-                Instantiator.Instantiate<Transform>(gameObject, position);
+                EmptySquare newSquare = Instantiator.Instantiate<EmptySquare>(gameObject, position);
+                newSquare._inBounds = false;
             });
         }
 
-        public void OnPointerEnter(PointerEventData eventData)
+        public async void OnPointerEnter(PointerEventData eventData)
         {
-            if (eventData.button != PointerEventData.InputButton.Left)
+            if ( ! Active || PauseRead.IsPaused)
                 return;
-            
-            ForeachAdjacentTile((direction, tile) =>
+            _selected = true;
+            TileProvider.ShowPendingTileAtPosition(Transform.position);
+            await Task.Delay(50);
+            TileProvider.PendingTile.StartPointsPreview();
+            ForeachAdjacentEntity<Tile>((_, tile) =>
             {
                 if (tile == null)
                     return;
-                tile.StartPointsPreview( - direction, TileProvider.CurrentType.Biome);
+                tile.StartPointsPreview();
             });
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            ForeachAdjacentTile((_, tile) =>
+            if ( ! Active || PauseRead.IsPaused)
+                return;
+            _selected = false;
+            TileProvider.HidePendingTile();
+            TileProvider.PendingTile.EndPointsPreview();
+            ForeachAdjacentEntity<Tile>((_, tile) =>
             {
                 if (tile == null)
                     return;
                 tile.EndPointsPreview();
             });
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out BoardBounds _))
+                _inBounds = true;
+        }
+
+        private void OnDestroy()
+        {
+            Actions.Placement.Place.started -= TryPlace;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace Gameplay.CameraControl
 {
@@ -12,10 +13,10 @@ namespace Gameplay.CameraControl
         public Vector2 ThumbstickMove => _actions.Camera.ThumbstickMove.ReadValue<Vector2>();
         public float Zoom => _actions.Camera.Zoom.ReadValue<float>();
 
-        private void Awake()
+        [Inject]
+        private void Construct(GameplayActions actions)
         {
-            _actions = new GameplayActions();
-            _actions.Enable();
+            _actions = actions;
             _actions.Camera.DragButton.started += StartDrag;
             _actions.Camera.DragButton.canceled += EndDrag;
         }

@@ -14,7 +14,7 @@ namespace Gameplay.States
 
         public override void Enter()
         {
-            Provider.DrawTile();
+            
         }
 
         public override void Exit()

@@ -1,48 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Extentions;
+using Gameplay.Score;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Tiles
 {
     public class Tile : SquareEntity
     {
         [SerializeField] private Transform _pointsAnchor;
-        
+
+        private bool _placed;
         private TileType _type;
 
-
-        private int Points { get; set; }
+        public int Points { get; private set; }
 
         public Transform PointsAnchor => _pointsAnchor;
 
         public event Action<int> PointsChanged;
         public event Action<int> PointsPreviewStarted;
         public event Action PointsPreviewEnded;
+        public event Action Placed;
 
-        private TileBiome Biome => _type.Biome;
+        public TileBiome Biome => _type.Biome;
+        
+        [Inject] private ScoreCounter ScoreCounter { get; set; }
         
         public void Init(TileType type)
         {
             _type = type;
         }
 
-        private void Start()
+        public void Place()
         {
+            if (_placed)
+                return;
+            if (!gameObject.activeSelf)
+                throw new InvalidOperationException("Tile gameObject must be active in order to be placed");
+            _placed = true;
+            Placed?.Invoke();
             RecalculatePoints();
             AdjacentTiles.Foreach(tile => tile?.RecalculatePoints());
         }
 
-        public void StartPointsPreview(Vector3 newTileDirection, TileBiome newTileBiome)
+        public void Move(Vector3 position)
+        {
+            Transform.position = position.WithY(0).SnapToGrid(GridSize);
+        }
+
+        public void StartPointsPreview()
         {
             List<TileBiome> previewTileBiomes = new();
-            ForeachAdjacentTile((direction, tile) =>
+            ForeachAdjacentEntity<Tile>((_, tile) =>
             {
-                if (direction.Equals(newTileDirection))
-                    previewTileBiomes.Add(newTileBiome);
-                else if (tile != null)
-                    previewTileBiomes.Add(tile.Biome);
+                if (tile == null)
+                    return;
+                previewTileBiomes.Add(tile.Biome);
             });
             int previewPoints = _type.Rule.CalculatePoints(previewTileBiomes.ToArray());
             PointsPreviewStarted?.Invoke(previewPoints);
@@ -54,7 +68,7 @@ namespace Gameplay.Tiles
         {
             EndPointsPreview();
             List<TileBiome> biomes = new();
-            ForeachAdjacentTile((_, tile) =>
+            ForeachAdjacentEntity<Tile>((_, tile) =>
             {
                 if (tile != null)
                     biomes.Add(tile.Biome);

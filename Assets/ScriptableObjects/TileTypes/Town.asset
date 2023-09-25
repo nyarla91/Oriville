@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Town
   m_EditorClassIdentifier: 
   _rule: {fileID: 11400000, guid: a1dae38166b3e954aa85293c0d1804fc, type: 2}
-  _biome: 2
+  _biome: 3
   _placementView: {fileID: 1986189692168322088, guid: ce7db86954778034dad8ae1eda8167a9, type: 3}
   _view: {fileID: 1986189692168322088, guid: ce7db86954778034dad8ae1eda8167a9, type: 3}

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Extentions.Pause;
+using UnityEngine;
+using Zenject;
 
 namespace Gameplay.CameraControl
 {
@@ -15,9 +17,12 @@ namespace Gameplay.CameraControl
         private Camera Camera => _camera ??= GetComponent<Camera>(); 
         private CameraInput Input => _input ??= GetComponent<CameraInput>(); 
         
-
+        [Inject] private IPauseRead PauseRead { get; }
+        
         private void Update()
         {
+            if (PauseRead.IsPaused)
+                return;
             float delta = Input.Zoom * _speed * Time.deltaTime;
             Camera.orthographicSize = Mathf.Clamp(Camera.orthographicSize - delta, _minSize, _maxSize);
         }
