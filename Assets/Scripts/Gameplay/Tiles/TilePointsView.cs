@@ -1,4 +1,5 @@
-﻿using Extentions;
+﻿using DG.Tweening;
+using Extentions;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -28,6 +29,10 @@ namespace Gameplay.Tiles
 
         private void UpdatePoints(int points)
         {
+            if (_actualPoints == points)
+                return;
+            RectTransform.DOComplete();
+            RectTransform.DOShakeScale(0.2f, Vector3.one * 0.5f);
             _actualPoints = points;
             _counter.color = _defaultColor;
             ShowPoints(points);

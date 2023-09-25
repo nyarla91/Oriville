@@ -1,10 +1,12 @@
 ﻿using System;
+using DG.Tweening;
+using Extentions;
 using TMPro;
 using UnityEngine;
 
 namespace Gameplay.Score
 {
-    public class ScoreView : MonoBehaviour
+    public class ScoreView : RectTransformable
     {
         [SerializeField] private BoardBounds _boardBounds;
         [SerializeField] private ScoreCounter _model;
@@ -18,6 +20,8 @@ namespace Gameplay.Score
 
         private void UpdateScore(int score)
         {
+            RectTransform.DOComplete();
+            RectTransform.DOShakeScale(0.2f, Vector3.one * 0.5f);
             _value.text = $"{score}";
             Debug.Log(_reuirementValue);
             _reuirementValue.text = $"/{_boardBounds.ExpandRequirement}";

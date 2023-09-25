@@ -247,6 +247,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SeaPlacement
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c025a61be8a13da488e5f33d1e0ce6e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5287691282050282304, guid: c025a61be8a13da488e5f33d1e0ce6e6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

@@ -31,6 +31,7 @@ namespace Gameplay.Tiles
         public void Init(TileType type)
         {
             _type = type;
+            Transform.rotation = Quaternion.LookRotation(FourDirections.PickRandom());
         }
 
         public void Place()

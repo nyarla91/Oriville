@@ -16,7 +16,11 @@ namespace Gameplay.UI
         [Inject] private IPauseRead Pause { get; set; }
 
         public void Quit() => Application.Quit();
-        public void Surrender() => SceneLoader.LoadMainMenu();
+        public void Surrender()
+        {
+            Debug.Log(90);
+            SceneLoader.LoadMainMenu();
+        }
 
         private void Awake()
         {

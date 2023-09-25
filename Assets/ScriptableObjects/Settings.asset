@@ -46,15 +46,15 @@ MonoBehaviour:
         - _key: fullscreen
           _value: 1
         - _key: resolution
-          _value: 2
+          _value: 3
     _audio:
       _settings:
         _dynamic: 1
         _pairs:
         - _key: music volume
-          _value: 50
+          _value: 5
         - _key: sfx volume
-          _value: 50
+          _value: 5
     _game:
       _settings:
         _dynamic: 1

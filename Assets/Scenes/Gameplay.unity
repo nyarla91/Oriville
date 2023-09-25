@@ -745,7 +745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a574cfb547874a3dba1c151073ea90c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sound: {fileID: 0}
+  _sound: {fileID: 287777906}
   _scoreCounter: {fileID: 558592685}
 --- !u!54 &287777903
 Rigidbody:
@@ -2960,10 +2960,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3864,6 +3864,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1520570695281193649, guid: aff00edb122db5b448b99990096c62d2, type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 510352910}
+    - target: {fileID: 1520570695281193649, guid: aff00edb122db5b448b99990096c62d2, type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchToPreviousWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520570695281193649, guid: aff00edb122db5b448b99990096c62d2, type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UI.MenuWindow, UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520570695281193649, guid: aff00edb122db5b448b99990096c62d2, type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1964412705486896805, guid: aff00edb122db5b448b99990096c62d2, type: 3}
       propertyPath: _text._english
       value: <sprite name=back> Resume
@@ -4162,14 +4178,14 @@ PrefabInstance:
     - target: {fileID: 7938636151611624493, guid: dc5eaf5fc69c488448a05d1e60da9230, type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 6039421185978729871}
+      objectReference: {fileID: 1267301608}
     - target: {fileID: 7938636151611624493, guid: dc5eaf5fc69c488448a05d1e60da9230, type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Surrender
+      value: ReturnToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7938636151611624493, guid: dc5eaf5fc69c488448a05d1e60da9230, type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Gameplay.UI.InGameMenu, Assembly-CSharp
+      value: Gameplay.GameOverScreen, Gameplay
       objectReference: {fileID: 0}
     - target: {fileID: 8636464090022787084, guid: dc5eaf5fc69c488448a05d1e60da9230, type: 3}
       propertyPath: m_text
@@ -4632,10 +4648,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

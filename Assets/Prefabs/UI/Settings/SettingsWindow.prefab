@@ -67,20 +67,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "* \u2014 \u042D\u0442\u0438 \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438
-    \u043D\u0435 \u043F\u0440\u0438\u043C\u0435\u043D\u044F\u0442\u0441\u044F \u0430\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438.
-    \u041B\u0443\u0447\u0448\u0435 \u043F\u0435\u0440\u0435\u0437\u0430\u043F\u0443\u0441\u0442\u0438\u0442\u044C
-    \u0438\u0433\u0440\u0443, \u0447\u0442\u043E\u0431\u044B \u0438\u0445 \u043F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C."
+  m_text: "* \u2014 These settings will not be applied immediately. Better restart
+    the game to apply changes"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f346aba4c21d34a46b9e1ac33f3cf961, type: 2}
+  m_sharedMaterial: {fileID: -8724367246049438467, guid: f346aba4c21d34a46b9e1ac33f3cf961, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1728053247
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.4}
+    rgba: 1711276032
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0.4}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -234,7 +232,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 930968785903519376, guid: aff00edb122db5b448b99990096c62d2, type: 3}
       propertyPath: m_text
-      value: "<sprite name=back> \u041D\u0430\u0437\u0430\u0434"
+      value: <sprite name=back> Back
       objectReference: {fileID: 0}
     - target: {fileID: 930968785903519376, guid: aff00edb122db5b448b99990096c62d2, type: 3}
       propertyPath: m_fontSize
@@ -476,7 +474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6138618612079947868, guid: 275ca694b1c610141ad3fc4c4be87e4a, type: 3}
       propertyPath: m_text
-      value: "\u041F\u043E\u043B\u043D\u044B\u0439 \u044D\u043A\u0440\u0430\u043D"
+      value: Fullscreen
       objectReference: {fileID: 0}
     - target: {fileID: 6666898319062278029, guid: 275ca694b1c610141ad3fc4c4be87e4a, type: 3}
       propertyPath: m_IsActive
@@ -550,7 +548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2652394887785501650, guid: 4b8d65eae53a0604bb2bff005a241eb3, type: 3}
       propertyPath: m_text
-      value: "\u0420\u0430\u0437\u0440\u0435\u0448\u0435\u043D\u0438\u0435"
+      value: Resolution
       objectReference: {fileID: 0}
     - target: {fileID: 3277044587775867907, guid: 4b8d65eae53a0604bb2bff005a241eb3, type: 3}
       propertyPath: m_IsActive
@@ -756,7 +754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2652394887785501650, guid: 4b8d65eae53a0604bb2bff005a241eb3, type: 3}
       propertyPath: m_text
-      value: "\u041C\u0443\u0437\u044B\u043A\u0430"
+      value: Music
       objectReference: {fileID: 0}
     - target: {fileID: 3277044587775867907, guid: 4b8d65eae53a0604bb2bff005a241eb3, type: 3}
       propertyPath: m_IsActive
@@ -918,6 +916,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6950841321892787278, guid: 5a950d4835a166e4dbb24775cd66077c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 63786f249f9cc4e4383109ae1ba44ecc, type: 3}
+    - target: {fileID: 6950841321892787278, guid: 5a950d4835a166e4dbb24775cd66077c, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950841321892787278, guid: 5a950d4835a166e4dbb24775cd66077c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950841321892787278, guid: 5a950d4835a166e4dbb24775cd66077c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950841321892787278, guid: 5a950d4835a166e4dbb24775cd66077c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6950841322210853788, guid: 5a950d4835a166e4dbb24775cd66077c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1097,7 +1115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2652394887785501650, guid: 4b8d65eae53a0604bb2bff005a241eb3, type: 3}
       propertyPath: m_text
-      value: "\u042F\u0437\u044B\u043A"
+      value: Language
       objectReference: {fileID: 0}
     - target: {fileID: 5885630226740142300, guid: 4b8d65eae53a0604bb2bff005a241eb3, type: 3}
       propertyPath: m_text
@@ -1299,7 +1317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2652394887785501650, guid: 4b8d65eae53a0604bb2bff005a241eb3, type: 3}
       propertyPath: m_text
-      value: "\u0417\u0432\u0443\u043A"
+      value: SFX
       objectReference: {fileID: 0}
     - target: {fileID: 3277044587775867907, guid: 4b8d65eae53a0604bb2bff005a241eb3, type: 3}
       propertyPath: m_IsActive
