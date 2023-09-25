@@ -7,6 +7,7 @@ namespace Gameplay.Tiles
 {
     public class TilePointsView : RectTransformable
     {
+        [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private TMP_Text _counter;
         [SerializeField] private Color _defaultColor;
         [SerializeField] private Color _reductionColor;
@@ -49,6 +50,7 @@ namespace Gameplay.Tiles
         private void Update()
         {
             RectTransform.anchoredPosition = MainCamera.WorldToScreenPoint(_model.PointsAnchor.position);
+            _canvasGroup.alpha = _model.gameObject.activeSelf ? 1 : 0;
         }
     }
 }

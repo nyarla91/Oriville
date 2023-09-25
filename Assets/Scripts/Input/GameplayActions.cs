@@ -213,6 +213,45 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""12050112-1c86-465c-ae7b-20fe29807b06"",
+            ""actions"": [
+                {
+                    ""name"": ""ToggleMemo"",
+                    ""type"": ""Button"",
+                    ""id"": ""c6808230-b1c0-4c3c-ab1e-cdd08c7a52c4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""06455726-c6d9-4512-bbd7-94f42081f06b"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleMemo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b5d71d0-dfd7-46e5-b3b0-c9b70dbee71b"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleMemo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -255,6 +294,9 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
         // Placement
         m_Placement = asset.FindActionMap("Placement", throwIfNotFound: true);
         m_Placement_Place = m_Placement.FindAction("Place", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_ToggleMemo = m_UI.FindAction("ToggleMemo", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -408,6 +450,39 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
         }
     }
     public PlacementActions @Placement => new PlacementActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_ToggleMemo;
+    public struct UIActions
+    {
+        private @GameplayActions m_Wrapper;
+        public UIActions(@GameplayActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ToggleMemo => m_Wrapper.m_UI_ToggleMemo;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @ToggleMemo.started -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleMemo;
+                @ToggleMemo.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleMemo;
+                @ToggleMemo.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleMemo;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @ToggleMemo.started += instance.OnToggleMemo;
+                @ToggleMemo.performed += instance.OnToggleMemo;
+                @ToggleMemo.canceled += instance.OnToggleMemo;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -437,5 +512,9 @@ public partial class @GameplayActions : IInputActionCollection2, IDisposable
     public interface IPlacementActions
     {
         void OnPlace(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnToggleMemo(InputAction.CallbackContext context);
     }
 }

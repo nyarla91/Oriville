@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26f597a2ba34a4db6a5a55a589809ef, type: 3}
   m_Name: GameplayRules
   m_EditorClassIdentifier: 
-  _gridSize: 2.5
-  _startingExpandRequirementPerSquare: 0.6
-  _maxExpandRequirementPerSquare: 2.1
-  _expandRequirementLerpT: 0.3
+  _gridSize: 2.2
+  _startingExpandRequirementPerSquare: 0.7
+  _maxExpandRequirementPerSquare: 2.25
+  _expandRequirementLerpT: 0.5
