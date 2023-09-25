@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GameplayRules
   m_EditorClassIdentifier: 
   _gridSize: 2.2
-  _startingExpandRequirementPerSquare: 0.7
+  _startingExpandRequirementPerSquare: 0.6
   _maxExpandRequirementPerSquare: 2.25
-  _expandRequirementLerpT: 0.5
+  _expandRequirementLerpT: 0.4

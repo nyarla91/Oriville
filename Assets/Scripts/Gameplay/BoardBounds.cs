@@ -7,6 +7,7 @@ namespace Gameplay
 {
     public class BoardBounds : Transformable
     {
+        [SerializeField] private AudioSource _sound;
         [SerializeField] private ScoreCounter _scoreCounter;
 
         private int _level = 1;
@@ -39,6 +40,7 @@ namespace Gameplay
             _level++;
             SetScaleForCurrentLevel();
             _expandREquirementPerSquare = Rules.LerpExpandRequirement(_expandREquirementPerSquare);
+            _sound.Play();
         }
 
         private void SetScaleForCurrentLevel()

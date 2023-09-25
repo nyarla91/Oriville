@@ -7,6 +7,7 @@ namespace Gameplay
 {
     public class GameOverDetector : MonoBehaviour
     {
+        [SerializeField] private AudioSource _sound;
         [SerializeField] private TileProvider _tileProvider;
         [SerializeField] private BoardBounds _boardBounds;
         [SerializeField] private GameOverScreen _screen;
@@ -28,6 +29,7 @@ namespace Gameplay
 
         private void EndGame()
         {
+            _sound.Play();
             PauseSet.AddPauseSource(this);
             _screen.Show();
         }

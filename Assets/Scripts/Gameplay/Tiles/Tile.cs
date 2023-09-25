@@ -9,6 +9,7 @@ namespace Gameplay.Tiles
 {
     public class Tile : SquareEntity
     {
+        [SerializeField] private AudioSource _sound;
         [SerializeField] private Transform _pointsAnchor;
 
         private bool _placed;
@@ -42,6 +43,7 @@ namespace Gameplay.Tiles
             Placed?.Invoke();
             RecalculatePoints();
             AdjacentTiles.Foreach(tile => tile?.RecalculatePoints());
+            _sound.Play();
         }
 
         public void Move(Vector3 position)

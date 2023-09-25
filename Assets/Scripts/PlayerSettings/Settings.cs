@@ -79,10 +79,17 @@ namespace PlayerSettings
             };
             Screen.SetResolution(screenWidth, screenHeight, fullScreenMode);
 
-            _mixer.SetFloat("MusicVolume", _soundCurve.Evaluate(config.Audio.GetSettingValue("music volume")));
-            _mixer.SetFloat("SFXVolume", _soundCurve.Evaluate(config.Audio.GetSettingValue("sfx volume")));
+            ApplyAudioSetting(config, "MusicVolume", "music volume");
+            ApplyAudioSetting(config, "SFXVolume", "sfx volume");
+            _mixer.SetFloat("SFXVolume", _soundCurve.Evaluate(0.1f * config.Audio.GetSettingValue("sfx volume")));
 
             LocalizedTextMesh.Language = config.Game.GetSettingValue("language");
+        }
+
+        private bool ApplyAudioSetting(SettingsConfig config, string mixerGroup, string audioSetting)
+        {
+            float t = _soundCurve.Evaluate(0.1f * config.Audio.GetSettingValue(audioSetting));
+            return _mixer.SetFloat(mixerGroup, Mathf.Lerp(-80, 0, t));
         }
     }
 }
