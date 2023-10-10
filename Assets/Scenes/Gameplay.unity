@@ -746,7 +746,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sound: {fileID: 287777906}
-  _scoreCounter: {fileID: 558592685}
 --- !u!54 &287777903
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1309,51 +1308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39985f427b84f7c9749f7cb9c292f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &558592684
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 558592686}
-  - component: {fileID: 558592685}
-  m_Layer: 0
-  m_Name: ScoreCounter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &558592685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558592684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad3f7cc671d945508401320ed9c4739c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tileProvider: {fileID: 1801872227}
---- !u!4 &558592686
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558592684}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5699997, y: 10.05537, z: 7.0300007}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &567118303
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,7 +2246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sound: {fileID: 931192245}
-  _tileProvider: {fileID: 1801872227}
   _boardBounds: {fileID: 287777902}
   _screen: {fileID: 1267301608}
 --- !u!4 &931192244
@@ -2308,7 +2261,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &931192245
 AudioSource:
@@ -3630,7 +3583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8ed5b87ef04df0a03e8c582906ec2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreCounter: {fileID: 558592685}
   _menu: {fileID: 1267301606}
   _openDelay: 1
   _finalScoreCorunter: {fileID: 1308220890}
@@ -3951,7 +3903,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boardBounds: {fileID: 287777902}
-  _model: {fileID: 558592685}
   _value: {fileID: 1334297978}
   _reuirementValue: {fileID: 979040206}
 --- !u!114 &1334297978
@@ -4547,56 +4498,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1801872228}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1801872226
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1801872228}
-  - component: {fileID: 1801872227}
-  m_Layer: 0
-  m_Name: TileProvider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1801872227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801872226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 820dc04bdbe84a36a58cebddd30e49f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _types:
-  - {fileID: 11400000, guid: 8e8ce57ea1b23414a91f88f6aaaafb27, type: 2}
-  - {fileID: 11400000, guid: a12e435050d401c428acdb6ec73e8ec9, type: 2}
-  - {fileID: 11400000, guid: 359933d8519581d4b85e04d8ad353f5a, type: 2}
-  _factory: {fileID: 1589118044}
---- !u!4 &1801872228
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801872226}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1589118045}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4825,8 +4726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 1473883428}
   _gameplayRules: {fileID: 11400000, guid: da4700760a0bef74e924a8169b5c7b4b, type: 2}
-  _tileProvider: {fileID: 1801872227}
-  _scoreCounter: {fileID: 558592685}
+  _tileFactory: {fileID: 0}
 --- !u!1 &1941753665
 GameObject:
   m_ObjectHideFlags: 0

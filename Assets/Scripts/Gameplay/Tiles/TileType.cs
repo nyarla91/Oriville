@@ -1,6 +1,4 @@
-﻿using System;
-using Gameplay.Tiles.Rules;
-using UnityEditor;
+﻿using Gameplay.Tiles.Rules;
 using UnityEngine;
 
 namespace Gameplay.Tiles

@@ -1,4 +1,5 @@
 ﻿using Gameplay;
+using Gameplay.Highscore;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -10,7 +11,7 @@ namespace MainMenu
         [SerializeField]  private TMP_Text _counter;
 
         [Inject]
-        private void Construct(Highscore highscore)
+        private void Construct(IHighscoreRead highscore)
         {
             _counter.text = highscore.Current.ToString();
         }

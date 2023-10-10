@@ -10,8 +10,7 @@ namespace Infrastructure
     {
         [SerializeField] private Camera _mainCamera;
         [SerializeField] private GameplayRules _gameplayRules;
-        [SerializeField] private TileProvider _tileProvider;
-        [SerializeField] private ScoreCounter _scoreCounter;
+        [SerializeField] private TileFactory _tileFactory;
         
         public override void InstallBindings()
         {
@@ -21,9 +20,14 @@ namespace Infrastructure
             
             Container.Bind<Camera>().FromInstance(_mainCamera).AsSingle();
             Container.Bind<GameplayRules>().FromInstance(_gameplayRules).AsSingle();
-            Container.Bind<TileProvider>().FromInstance(_tileProvider).AsSingle();
-            Container.Bind<ScoreCounter>().FromInstance(_scoreCounter).AsSingle();
+            Container.Bind<TileFactory>().FromInstance(_tileFactory).AsSingle();
+
+            TileProvider tileProvider = Container.Instantiate<TileProvider>();
+            Container.Bind<TileProvider>().FromInstance(tileProvider).AsSingle();
             
+            Container.Bind<ScoreCounter>().AsSingle();
+            
+            tileProvider.SpawnFirstTile();
         }
     }
 }

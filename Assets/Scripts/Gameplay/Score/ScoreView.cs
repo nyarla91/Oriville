@@ -3,19 +3,21 @@ using DG.Tweening;
 using Extentions;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Score
 {
     public class ScoreView : RectTransformable
     {
         [SerializeField] private BoardBounds _boardBounds;
-        [SerializeField] private ScoreCounter _model;
         [SerializeField] private TMP_Text _value;
         [SerializeField] private TMP_Text _reuirementValue;
 
+        [Inject] private ScoreCounter Model { get; }
+        
         private void Awake()
         {
-            _model.CurrentChanged += UpdateScore;
+            Model.CurrentChanged += UpdateScore;
         }
 
         private void UpdateScore(int score)

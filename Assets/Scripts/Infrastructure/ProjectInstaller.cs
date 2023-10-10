@@ -1,5 +1,6 @@
 ﻿using Extentions.Pause;
 using Gameplay;
+using Gameplay.Highscore;
 using GameStates;
 using Input;
 using PlayerSettings;
@@ -28,7 +29,9 @@ namespace Infrastructure
             Container.Bind<IPauseSet>().FromInstance(pause).AsSingle();
             Container.Bind<IPauseRead>().FromInstance(pause).AsSingle();
 
-            Container.Bind<Highscore>().AsSingle();
+            Highscore highscore = new Highscore();
+            Container.Bind<IHighscoreRead>().FromInstance(highscore).AsSingle();
+            Container.Bind<IHighscoreSet>().FromInstance(highscore).AsSingle();
         }
     }
 }

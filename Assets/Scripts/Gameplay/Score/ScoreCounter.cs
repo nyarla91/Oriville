@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Linq;
 using Gameplay.Tiles;
-using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Score
 {
-    public class ScoreCounter : MonoBehaviour
+    public class ScoreCounter
     {
-        [SerializeField] private TileProvider _tileProvider;
 
         public int Current { get; private set; }
 
         public event Action<int> CurrentChanged;
 
-        private void Awake()
+        [Inject]
+        public ScoreCounter(TileProvider tileProvider)
         {
-            _tileProvider.TilePlaced += RecalculateScore;
+            tileProvider.TilePlaced += RecalculateScore;
         }
 
         private void RecalculateScore(Tile[] tiles)

@@ -16,3 +16,7 @@ MonoBehaviour:
   _startingExpandRequirementPerSquare: 0.6
   _maxExpandRequirementPerSquare: 2.25
   _expandRequirementLerpT: 0.4
+  _tilePool:
+  - {fileID: 11400000, guid: 8e8ce57ea1b23414a91f88f6aaaafb27, type: 2}
+  - {fileID: 11400000, guid: a12e435050d401c428acdb6ec73e8ec9, type: 2}
+  - {fileID: 11400000, guid: 359933d8519581d4b85e04d8ad353f5a, type: 2}

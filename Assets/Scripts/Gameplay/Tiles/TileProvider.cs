@@ -1,25 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Extentions;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Tiles
 {
-    public class TileProvider : MonoBehaviour
+    public class TileProvider
     {
-        [SerializeField] private TileType[] _types;
-        [SerializeField] private TileFactory _factory;
-
         private List<Tile> Tiles { get; } = new();
         
         public Tile PendingTile { get; private set; }
 
+        private TileFactory Factory { get; }
+        private GameplayRules GameplayRules { get; }
+        
         public event Action<Tile[]> TilePlaced;
 
-        private void Start()
+        [Inject]
+        public TileProvider(TileFactory factory, GameplayRules gameplayRules)
         {
-            SpawnPendingTile();
+            GameplayRules = gameplayRules;
+            Factory = factory;
         }
 
         public void PlacePendingTile()
@@ -41,10 +43,17 @@ namespace Gameplay.Tiles
             PendingTile.gameObject.SetActive(false);
         }
 
+        public void SpawnFirstTile()
+        {
+            if (PendingTile != null)
+                return;
+            SpawnPendingTile();
+        }
+
         private void SpawnPendingTile()
         {
-            TileType type = _types.PickRandom();
-            PendingTile = _factory.SpawnTile(type);
+            TileType type = GameplayRules.TilePool.PickRandom();
+            PendingTile = Factory.SpawnTile(type);
         }
     }
 }

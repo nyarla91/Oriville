@@ -8,7 +8,6 @@ namespace Gameplay
     public class BoardBounds : Transformable
     {
         [SerializeField] private AudioSource _sound;
-        [SerializeField] private ScoreCounter _scoreCounter;
 
         private int _level = 1;
         private float _expandREquirementPerSquare;
@@ -16,11 +15,12 @@ namespace Gameplay
         public int ExpandRequirement => (int) (_expandREquirementPerSquare * SquaresInBounds);
         public int SquaresInBounds => (2 * _level + 1) * (2 * _level + 1);
 
+        [Inject] private ScoreCounter ScoreCounter { get; }
         [Inject] private GameplayRules Rules { get; set; }
         
         private void Awake()
         {
-            _scoreCounter.CurrentChanged += CheckScoreRequirement;
+            ScoreCounter.CurrentChanged += CheckScoreRequirement;
         }
 
         private void Start()

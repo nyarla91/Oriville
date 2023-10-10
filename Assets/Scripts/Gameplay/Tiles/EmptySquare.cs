@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Extentions;
 using Extentions.Pause;
 using UnityEngine;
@@ -60,6 +61,11 @@ namespace Gameplay.Tiles
                     return;
                 tile.StartPointsPreview();
             });
+        }
+
+        private void Update()
+        {
+            print(_inBounds);
         }
 
         public void OnPointerExit(PointerEventData eventData)

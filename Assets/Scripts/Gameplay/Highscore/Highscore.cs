@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Gameplay
+namespace Gameplay.Highscore
 {
-    public class Highscore
+    public class Highscore : IHighscoreSet, IHighscoreRead
     {
         public int Current { get; private set; }
 
